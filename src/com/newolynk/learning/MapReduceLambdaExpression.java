@@ -1,6 +1,7 @@
 package com.newolynk.learning;
 
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 
 public class MapReduceLambdaExpression {
@@ -31,6 +32,16 @@ public class MapReduceLambdaExpression {
         System.out.println("*** The sum of all the house price in java 8 using reduce function ***");
         total = housePrice.stream().reduce((sum, price) -> sum + price).orElse(0);
         System.out.println("Sum is : " + total + " $");
+        
+        IntSummaryStatistics statisticsPrice = housePrice.stream().mapToInt((x) -> x).summaryStatistics(); 
+        System.out.println("Highest price house : " + statisticsPrice.getMax()); 
+        System.out.println("Lowest price house : " + statisticsPrice.getMin());
+        System.out.println("Sum of all price houses : " + statisticsPrice.getSum()); 
+        System.out.println("Average of all price house : " + statisticsPrice.getAverage());
+
+       
+        
+        
                   
                   
 	
